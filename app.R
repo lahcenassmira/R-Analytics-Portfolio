@@ -1,9 +1,9 @@
-# Load required libraries
+
 library(shiny)
 library(ggplot2)
 library(dplyr)
 
-# Data for your portfolio
+
 personal_info <- data.frame(
   Name = "Lahcen Assmira",
   Background = "Student in Economics and Management, Web Development Enthusiast",
@@ -27,7 +27,7 @@ skills <- data.frame(
   Proficiency = c(85, 80, 75, 70, 65, 60)  # Percentage completion
 )
 
-# Define UI for the portfolio dashboard
+
 ui <- fluidPage(
   titlePanel("Lahcen Assmira's Portfolio Dashboard"),
   
@@ -50,24 +50,23 @@ ui <- fluidPage(
   )
 )
 
-# Define server logic
 server <- function(input, output) {
-  # Display personal information
+
   output$personalInfo <- renderTable({
     personal_info
   })
   
-  # Display education table
+ 
   output$educationTable <- renderTable({
     education
   })
   
-  # Display projects table
+
   output$projectsTable <- renderTable({
     projects
   })
   
-  # Display skills progress as a bar plot
+
   output$skillsPlot <- renderPlot({
     ggplot(skills, aes(x = Skill, y = Proficiency, fill = Skill)) +
       geom_bar(stat = "identity") +
@@ -77,5 +76,5 @@ server <- function(input, output) {
   })
 }
 
-# Run the application 
+
 shinyApp(ui = ui, server = server)
