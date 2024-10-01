@@ -1,4 +1,4 @@
-/* Custom Styles for the Dashboard */
+
 body {
   background-color: #f8f9fa;
   font-family: 'Helvetica Neue', sans-serif;
